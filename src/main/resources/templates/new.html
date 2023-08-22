@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <title>Create New Student</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            background-color: #f5f5f5;
+            padding: 40px;
+        }
+        .form-container {
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .form-label {
+            font-weight: bold;
+        }
+        .btn-save {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="text-center">
+        <h1>Create New Student</h1>
+    </div>
+    <div class="col-sm-6 offset-sm-3 form-container">
+	
+        <form action="#" th:action="@{/save}" th:object="${student}" method="post">
+            <div class="form-group">
+                <label class="form-label">Student Name</label>
+                <input type="hidden" th:field="*{id}" />
+                <input type="text" th:field="*{studentname}" class="form-control" placeholder="Enter Student Name" />
+            </div>
+            <div class="form-group">
+                <label class="form-label">Course</label>
+                <input type="text" th:field="*{course}" class="form-control" placeholder="Enter Course" />
+            </div>
+            <div class="form-group">
+                <label class="form-label">Fee</label>
+                <input type="text" th:field="*{fees}" class="form-control" placeholder="Enter Fee" />
+            </div>
+            <button type="submit" class="btn btn-primary btn-save">Save</button>
+        </form>
+       
+    </div>
+</div>
+</body>
+</html>
