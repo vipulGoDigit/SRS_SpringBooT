@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <title>Student Registration Portal</title>
+    <title>Professor Registration Portal</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <style>
@@ -22,37 +22,36 @@
 
 <body>
     <div class="container">
-        <h2 class="text-center">Student Registration Portal</h2>
+        <h2 class="text-center">Professor Registration Portal</h2>
         <div class="d-flex justify-content-between mb-2">
-            <a class="btn btn-primary" th:href="@{'/new'}">Add New Student</a>
-            <a class="btn btn-primary " th:href="@{'/'}">Back</a>
+            <a class="btn btn-primary" th:href="@{'/newProfessor'}">Add New Professor</a>
+            <a class="btn btn-primary" th:href="@{'/'}">Back</a>
         </div>
-
         <div class="table-container">
             <table class="table table-striped">
                 <thead class="thead-dark">
                     <tr>
-                        <th>Student ID</th>
-                        <th>Student Name</th>
+                        <th>Professor ID</th>
+                        <th>Professor Name</th>
                         <th>Course</th>
-                        <th>Fee</th>
+                        <th>Exp</th>
                         <th>Update</th>
                         <th>Delete</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr th:each="student:${liststudent}">
-                        <td th:text="${student.id}">Student ID</td>
-                        <td th:text="${student.studentname}">StudentName</td>
-                        <td th:text="${student.course}">Course</td>
-                        <td th:text="${student.fees}">Fee</td>
+                    <tr th:each="professor:${listProfessor}">
+                        <td th:text="${professor.pid}">Student ID</td>
+                        <td th:text="${professor.Professorname}">StudentName</td>
+                        <td th:text="${professor.course}">Course</td>
+                        <td th:text="${professor.exp}">Fee</td>
                         <td>
-                            <a th:href="@{'/edit/' + ${student.id}}">Update</a>
+                            <a th:href="@{'Professor/edit/' + ${professor.pid}}">Update</a>
                         </td>
                         <td>
                             <a style="color: red;"
-                                th:href="@{'/delete/' + ${student.id}}"
-                                onclick="return confirm('Are you sure you want to delete this student?')">Delete</a>
+                                th:href="@{'Professor/delete/' + ${professor.pid}}"
+                                onclick="return confirm('Are you sure you want to delete this Professor?')">Delete</a>
                         </td>
                     </tr>
                 </tbody>

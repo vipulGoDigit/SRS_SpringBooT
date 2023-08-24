@@ -21,7 +21,13 @@ public class StudentController {
 	@Autowired
 	private StudentService service;
 	
-    @GetMapping("/")
+	
+
+	@GetMapping("/")
+	public String welcomePage(){
+		return "/welcome";
+	}
+    @GetMapping("/Student")
     public String viewHomePage(Model model) {
         List<Student> liststudent = service.ListAll();
         model.addAttribute("liststudent", liststudent);
